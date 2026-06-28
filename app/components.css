@@ -1,0 +1,174 @@
+/* ============================================================
+   BEA COMPONENT STYLES (v2)
+   Matches the live "sticker UI" aesthetic — 4px navy outline,
+   chunky offset shadow, pastel fills, Inter, super-bold pills.
+   Every class prefixed `bea-` to coexist with existing classes.
+   ============================================================ */
+
+.bea-wrap    { max-width: var(--bea-container); margin: 0 auto; padding: 0 var(--bea-gutter); }
+.bea-section { padding: var(--bea-sp-8) 0; }
+
+/* ─── BUTTONS ───────────────────────────────────────────────── */
+.bea-btn {
+  display: inline-flex; align-items: center; gap: var(--bea-sp-2);
+  font-family: var(--bea-font); font-weight: var(--bea-w-cta); font-size: 1rem;
+  padding: 14px 22px; border-radius: var(--bea-r-cta);
+  border: none; cursor: pointer; text-decoration: none;
+  transition: transform var(--bea-dur) var(--bea-ease), box-shadow var(--bea-dur) var(--bea-ease);
+}
+.bea-btn:focus-visible { outline: 3px solid var(--bea-cta); outline-offset: 3px; }
+.bea-btn:hover  { transform: translateY(-2px); }
+.bea-btn:active { transform: translateY(2px); box-shadow: 0 0 0 0 transparent !important; }
+
+.bea-btn-orange { background: var(--bea-cta); color: #fff;
+                  box-shadow: var(--bea-shadow-cta-orange); border-radius: var(--bea-r-pill); }
+.bea-btn-navy   { background: var(--bea-dark-cta); color: #fff;
+                  box-shadow: var(--bea-shadow-cta); }
+.bea-btn-ghost  { background: var(--bea-paper); color: var(--bea-text);
+                  border: var(--bea-border-pill); box-shadow: var(--bea-shadow-cta);
+                  border-radius: var(--bea-r-pill); }
+
+/* ─── PILLS / CHIPS ─────────────────────────────────────────── */
+.bea-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 12px; border-radius: var(--bea-r-pill);
+  background: var(--bea-paper); color: var(--bea-text);
+  border: var(--bea-border-pill);
+  font-weight: var(--bea-w-pill); font-size: var(--bea-fs-micro);
+}
+.bea-pill--gold {     /* the dashed cream/gold status pills ("👀 Preview", "📝 Level test") */
+  background: #fff7df; border: var(--bea-border-dash);
+}
+.bea-pill--solid {    /* solid navy fill */
+  background: var(--bea-dark-cta); color: #fff; border-color: var(--bea-dark-cta);
+}
+
+/* ─── BASE CARD (the 4px navy outline + hard offset shadow) ─── */
+.bea-card {
+  position: relative;
+  background: var(--bea-paper);
+  border: var(--bea-border-card);
+  border-radius: var(--bea-r-card);
+  box-shadow: var(--bea-shadow-card);
+  padding: var(--bea-sp-5);
+  transition: transform var(--bea-dur) var(--bea-ease), box-shadow var(--bea-dur) var(--bea-ease);
+}
+.bea-card:hover  { transform: translate(-2px,-2px); box-shadow: var(--bea-shadow-lg); }
+.bea-card:active { transform: translate(4px,4px);   box-shadow: 0 0 0 0 transparent; }
+
+/* ─── TILE CARD (Library + Level grid item) ─────────────────── */
+.bea-tile {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  gap: 6px; padding: 18px 14px;
+  border: var(--bea-border-card); border-radius: var(--bea-r-card);
+  box-shadow: var(--bea-shadow-tile);
+  text-decoration: none; color: var(--bea-text);
+  background: var(--bea-paper);
+  transition: transform var(--bea-dur) var(--bea-ease), box-shadow var(--bea-dur) var(--bea-ease);
+}
+.bea-tile:hover  { transform: translate(-2px,-2px); box-shadow: var(--bea-shadow-card); }
+.bea-tile:active { transform: translate(3px,3px);   box-shadow: 0 0 0 0 transparent; }
+.bea-tile .emoji { font-size: 2rem; line-height: 1; margin-bottom: 4px; }
+.bea-tile strong { font-weight: var(--bea-w-title); font-size: var(--bea-fs-title); }
+.bea-tile small  { color: var(--bea-text-muted); font-size: var(--bea-fs-small); line-height: 1.35; }
+
+/* Library tile palettes */
+.bea-tile--games  { background: var(--bea-tile-games); }
+.bea-tile--sheets { background: var(--bea-tile-sheets); }
+.bea-tile--speak  { background: var(--bea-tile-speak); }
+.bea-tile--write  { background: var(--bea-tile-write); }
+.bea-tile--teach  { background: var(--bea-tile-teach); }
+.bea-tile--test   { background: var(--bea-tile-test); }
+
+/* Level tile palettes — slightly more saturated */
+.bea-tile--A1 { background: var(--bea-A1); }
+.bea-tile--A2 { background: var(--bea-A2); }
+.bea-tile--B1 { background: var(--bea-B1); }
+.bea-tile--B2 { background: var(--bea-B2); }
+.bea-tile--C1 { background: var(--bea-C1); }
+.bea-tile--C2 { background: var(--bea-C2); }
+.bea-tile .level-letter {
+  font-family: var(--bea-font); font-weight: 900; letter-spacing: -.02em;
+  font-size: 2.4rem; line-height: 1; color: var(--bea-text); margin: 4px 0 2px;
+}
+
+/* ─── COURSE CARD (the big preview) ─────────────────────────── */
+.bea-course {
+  border: var(--bea-border-card); border-radius: var(--bea-r-card-lg);
+  background: var(--bea-paper); box-shadow: var(--bea-shadow-lg);
+  overflow: hidden; display: flex; flex-direction: column;
+  transition: transform var(--bea-dur) var(--bea-ease), box-shadow var(--bea-dur) var(--bea-ease);
+}
+.bea-course:hover { transform: translate(-3px,-3px); box-shadow: var(--bea-shadow-xl); }
+
+/* Pastel header band — pick a tone via .bea-course--A1 … --C2 */
+.bea-course-head {
+  padding: 18px 22px 16px;
+  display: flex; align-items: center; gap: 12px;
+  border-bottom: var(--bea-border-card);
+  background: var(--bea-tile-games);  /* default; override per level */
+}
+.bea-course--A1 .bea-course-head { background: var(--bea-A1); }
+.bea-course--A2 .bea-course-head { background: var(--bea-A2); }
+.bea-course--B1 .bea-course-head { background: var(--bea-B1); }
+.bea-course--B2 .bea-course-head { background: var(--bea-B2); }
+.bea-course--C1 .bea-course-head { background: var(--bea-C1); }
+.bea-course--C2 .bea-course-head { background: var(--bea-C2); }
+.bea-course-head .emoji { font-size: 1.8rem; }
+.bea-course-head .meta { display: flex; flex-wrap: wrap; gap: 6px; }
+.bea-course-body { padding: 22px; }
+.bea-course-body h3 { font-weight: var(--bea-w-title); margin: 0 0 6px; }
+.bea-course-body > p { margin: 0 0 18px; }
+
+/* Module mini-rows inside a course card */
+.bea-mod-list { display: flex; flex-direction: column; gap: 10px; margin: 0 0 18px; }
+.bea-mod {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 14px; background: var(--bea-paper);
+  border: 2px solid var(--bea-stroke); border-radius: 18px;
+}
+.bea-mod .ico {
+  flex-shrink: 0; width: 36px; height: 36px;
+  background: var(--bea-skysoft); border-radius: 10px;
+  display: grid; place-items: center; font-size: 1.1rem;
+}
+.bea-mod strong { display: block; font-weight: 700; font-size: .98rem; color: var(--bea-text); }
+.bea-mod small  { color: var(--bea-text-muted); font-size: var(--bea-fs-small); line-height: 1.35; }
+
+.bea-stat-row {
+  display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 18px;
+}
+.bea-course-cta {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; padding: 16px;
+  background: var(--bea-dark-cta); color: #fff;
+  font-weight: var(--bea-w-cta); font-size: 1rem;
+  border: none; border-radius: var(--bea-r-cta);
+  cursor: pointer; text-decoration: none;
+  box-shadow: var(--bea-shadow-cta);
+  transition: transform var(--bea-dur) var(--bea-ease);
+}
+.bea-course-cta:hover  { transform: translateY(-2px); }
+.bea-course-cta:active { transform: translateY(2px); box-shadow: 0 0 0 0 transparent; }
+
+/* ─── GRIDS ─────────────────────────────────────────────────── */
+.bea-grid-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+.bea-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+@media (max-width: 960px) {
+  .bea-grid-6 { grid-template-columns: repeat(3, 1fr); }
+  .bea-grid-3 { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .bea-grid-6 { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ─── SECTION HEAD ─────────────────────────────────────────── */
+.bea-section-head {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  gap: 20px; margin-bottom: 28px; flex-wrap: wrap;
+}
+.bea-eyebrow {
+  font-weight: 700; font-size: .85rem; letter-spacing: .04em;
+  color: var(--bea-text-muted); margin-bottom: 8px; display: block;
+}
+.bea-section-head h2 { margin: 0; max-width: 720px; }

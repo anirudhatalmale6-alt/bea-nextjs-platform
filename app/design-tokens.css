@@ -1,0 +1,119 @@
+/* ============================================================
+   BEA DESIGN TOKENS — extracted from production CSS
+   on britishenglishacademy.co.uk on 2026-06-28.
+   These match the live values so v2 cards drop in seamlessly.
+   ============================================================ */
+
+:root {
+  /* --- Reserved brand colours already in production --- */
+  --bea-navy:    #361163;
+  --bea-oxford:  #52237f;
+  --bea-skysoft: #efe7f7;
+  --bea-gold:    #ffb81c;
+  --bea-lime:    #00a7a3;
+  --bea-ink:     #17121f;
+  --bea-mint:    #dff8f6;
+  --bea-coral:   #ff6955;
+
+  /* --- Working palette (text, surfaces, borders) --- */
+  --bea-text:        #102a43;   /* every h1/h2 + card title uses this */
+  --bea-text-muted:  #5a6b7b;
+  --bea-page-bg:     #f8fafc;
+  --bea-paper:       #ffffff;
+  --bea-stroke:      #102a43;   /* the 4px navy outline that every card carries */
+
+  /* --- CTA --- */
+  --bea-cta:         #ff8c42;   /* the orange "Check your English Level" button */
+  --bea-cta-shadow:  rgba(255, 140, 66, 0.23);
+  --bea-dark-cta:    #102a43;   /* the "View Course Preview" button */
+
+  /* --- LIBRARY tile fills (Games, Worksheets…) --- */
+  --bea-tile-games:    #e9f8ff;
+  --bea-tile-sheets:   #fff7df;
+  --bea-tile-speak:    #ecfff9;
+  --bea-tile-write:    #ffeaf0;
+  --bea-tile-teach:    #f0eaff;
+  --bea-tile-test:     #f3ffd4;
+
+  /* --- LEVEL fills (A1–C2) --- */
+  --bea-A1: #ffd166;   /* yellow / sun */
+  --bea-A2: #62d2ff;   /* sky blue / cart */
+  --bea-B1: #43e6b5;   /* mint / speech bubble */
+  --bea-B2: #ffb3bd;   /* coral pink / rocket */
+  --bea-C1: #d8c9ff;   /* lavender / mortarboard */
+  --bea-C2: #c8f560;   /* lime / trophy */
+
+  /* --- Typography (production uses Inter only) --- */
+  --bea-font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+              "Segoe UI", Arial, sans-serif;
+
+  --bea-fs-h1:    clamp(2.6rem, 6vw, 4.75rem);  /* prod = 76px */
+  --bea-fs-h2:    clamp(2rem, 4vw, 3.2rem);     /* prod = 51.2px */
+  --bea-fs-h3:    1.5rem;
+  --bea-fs-title: 1.0625rem;   /* 17px — card title */
+  --bea-fs-body:  1rem;
+  --bea-fs-small: 0.875rem;
+  --bea-fs-micro: 0.78rem;
+
+  /* Note: production uses font-weight 400 for big headlines.
+     The size and colour do the work, not the weight. */
+  --bea-w-display: 400;
+  --bea-w-title:   700;
+  --bea-w-cta:     950;   /* yes, 950 — the buttons are super black */
+  --bea-w-pill:    950;
+
+  /* --- Shape — radii match production (28–32 for cards, 18 for CTAs, 999 for pills) --- */
+  --bea-r-card:    28px;
+  --bea-r-card-lg: 30px;
+  --bea-r-section: 32px;
+  --bea-r-cta:     18px;
+  --bea-r-pill:    999px;
+
+  /* --- The signature SHADOW: hard offset, no blur, navy tint --- */
+  --bea-shadow-tile:  8px 8px 0 0 rgba(16, 42, 67, 0.09);
+  --bea-shadow-card: 10px 10px 0 0 rgba(16, 42, 67, 0.10);
+  --bea-shadow-lg:   12px 12px 0 0 rgba(16, 42, 67, 0.10);
+  --bea-shadow-xl:   14px 14px 0 0 rgba(16, 42, 67, 0.12);
+  --bea-shadow-cta:  0  7px 0 0 rgba(16, 42, 67, 0.18);
+  --bea-shadow-cta-orange: 0 9px 0 0 var(--bea-cta-shadow);
+
+  /* --- Borders --- */
+  --bea-border-card: 4px solid var(--bea-stroke);
+  --bea-border-pill: 2px solid var(--bea-stroke);
+  --bea-border-dash: 2px dashed #f0c14b;   /* the gold dashed status pills */
+
+  /* --- Motion --- */
+  --bea-ease: cubic-bezier(.2,.7,.2,1);
+  --bea-dur: 180ms;
+
+  /* --- Spacing & layout --- */
+  --bea-sp-1: 4px;  --bea-sp-2: 8px;  --bea-sp-3: 12px;
+  --bea-sp-4: 16px; --bea-sp-5: 24px; --bea-sp-6: 32px;
+  --bea-sp-7: 48px; --bea-sp-8: 64px;
+  --bea-container: 1200px;
+  --bea-gutter: 24px;
+}
+
+/* Body baseline — these match production exactly. */
+body {
+  font-family: var(--bea-font);
+  color: var(--bea-text);
+  background: var(--bea-page-bg);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 {
+  font-family: var(--bea-font);
+  color: var(--bea-text);
+  font-weight: var(--bea-w-display);
+  letter-spacing: -.015em;
+  line-height: 1.05;
+  margin: 0 0 .4em;
+}
+h1 { font-size: var(--bea-fs-h1); }
+h2 { font-size: var(--bea-fs-h2); }
+h3 { font-size: var(--bea-fs-h3); font-weight: var(--bea-w-title); }
+p  { color: var(--bea-text-muted); line-height: 1.55; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}

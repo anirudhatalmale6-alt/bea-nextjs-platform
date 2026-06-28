@@ -1,0 +1,203 @@
+/* ============================================================
+   BEA — APP / INFO CARD STYLES
+   Covers the second card system used on catalogue, course-detail
+   and CEFR pages (/cefr-levels, /courses, /courses/{slug}).
+   Pair with design-tokens.css. Class names prefixed `bea-app-`.
+   ============================================================ */
+
+/* ─── Info card chassis ─────────────────────────────────────── */
+.bea-app-card {
+  background: var(--bea-paper);
+  border: 1px solid #e2e8f0;            /* slate-200 — matches production */
+  border-radius: 32px;
+  padding: 24px;
+  color: var(--bea-text);
+  display: flex; flex-direction: column;
+  text-decoration: none;
+  transition: transform var(--bea-dur) var(--bea-ease), border-color var(--bea-dur) var(--bea-ease);
+}
+.bea-app-card:hover { transform: translateY(-2px); border-color: #cbd5e1; }
+.bea-app-card--sm { border-radius: 24px; padding: 20px; }
+.bea-app-card--lg { padding: 28px; }
+.bea-app-card h2,
+.bea-app-card h3 {
+  font-weight: 900;                       /* font-black */
+  color: var(--bea-text);
+  letter-spacing: -.02em;
+}
+.bea-app-card h3 { font-size: 1.5rem; margin: 12px 0 6px; }
+.bea-app-card h2 { font-size: 2.2rem; margin: 16px 0 8px; }
+.bea-app-card > p { color: #5a6b7b; margin: 0 0 4px; }
+
+/* ─── Eyebrow badge (sky pill) ─────────────────────────────── */
+.bea-badge {
+  display: inline-block;
+  background: #eaf6ff;                    /* light sky */
+  color: #0a3d62;                         /* deep navy */
+  padding: 4px 12px;
+  border-radius: var(--bea-r-pill);
+  font-size: 14px; font-weight: 700;
+  line-height: 1.3;
+  font-family: var(--bea-font);
+}
+.bea-badge--lg {
+  font-size: 1rem; padding: 8px 16px;
+}
+
+/* ─── Chip (module tag: Teacher-led, Interactive practice…) ── */
+.bea-chip {
+  display: inline-block;
+  background: #f1f5f9;                    /* slate-100 */
+  color: #475569;                         /* slate-600 */
+  padding: 4px 12px;
+  border-radius: var(--bea-r-pill);
+  font-size: 12px; font-weight: 700;
+  font-family: var(--bea-font);
+}
+.bea-chip-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+
+/* ─── Filter pill (white with thin border) ─────────────────── */
+.bea-filter {
+  display: inline-flex; align-items: center;
+  padding: 8px 18px;
+  background: var(--bea-paper);
+  border: 1px solid #e2e8f0;
+  border-radius: var(--bea-r-pill);
+  color: var(--bea-text);
+  font-weight: 700; font-size: .92rem;
+  font-family: var(--bea-font);
+  cursor: pointer;
+  transition: all var(--bea-dur) var(--bea-ease);
+}
+.bea-filter:hover { background: #f8fafc; }
+.bea-filter[aria-pressed="true"],
+.bea-filter--active {
+  background: var(--bea-text); color: #fff; border-color: var(--bea-text);
+}
+.bea-filter-row { display: flex; flex-wrap: wrap; gap: 10px; }
+
+/* ─── Stat boxes (12 weeks / 48 lessons / 96 activities) ───── */
+.bea-stat-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  margin: 24px 0;
+}
+@media (max-width: 560px) { .bea-stat-grid { grid-template-columns: 1fr; } }
+.bea-stat-box {
+  border-radius: 16px;
+  padding: 16px;
+  font-family: var(--bea-font);
+}
+.bea-stat-box b      { display: block; font-weight: 900; color: var(--bea-text); font-size: 1.1rem; }
+.bea-stat-box p,
+.bea-stat-box small  { color: #64748b; font-size: .85rem; margin: 0; line-height: 1.3; }
+.bea-stat-box--sky    { background: #eaf6ff; }
+.bea-stat-box--amber  { background: #fff7df; }
+.bea-stat-box--mint   { background: #ecfff9; }
+.bea-stat-box--pink   { background: #ffeaf0; }
+.bea-stat-box--lilac  { background: #f0eaff; }
+.bea-stat-box--lime   { background: #f3ffd4; }
+
+/* ─── Module block (with chip row) ─────────────────────────── */
+.bea-module-block {
+  background: var(--bea-paper);
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 20px;
+}
+.bea-module-block h4 {
+  margin: 0 0 6px; font-weight: 900; font-size: 1.05rem;
+  color: var(--bea-text);
+}
+.bea-module-block p { margin: 0 0 4px; color: #5a6b7b; font-size: .92rem; }
+
+/* ─── Sidebar (Start correctly panel) ──────────────────────── */
+.bea-sidebar {
+  background: var(--bea-paper);
+  border: 1px solid #e2e8f0;
+  border-radius: 32px;
+  padding: 28px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.bea-sidebar h3 { font-weight: 900; font-size: 1.6rem; margin: 0 0 6px; }
+.bea-sidebar > p { color: #5a6b7b; margin: 0 0 12px; }
+.bea-sidebar .bea-btn-navy,
+.bea-sidebar .bea-btn-ghost { width: 100%; justify-content: center; }
+
+/* ─── Accent note (skysoft pathway block) ──────────────────── */
+.bea-note {
+  background: var(--bea-skysoft);          /* lavender from brand */
+  border-radius: 16px;
+  padding: 16px;
+  font-size: .92rem;
+  color: var(--bea-text);
+}
+.bea-note strong { display: block; margin-bottom: 4px; font-weight: 900; }
+
+/* ─── Page header panel (white card with eyebrow + giant heading) ─── */
+.bea-page-header {
+  background: var(--bea-paper);
+  border: 1px solid #e2e8f0;
+  border-radius: 32px;
+  padding: 32px;
+  margin: 24px 0 32px;
+}
+.bea-page-header .bea-badge { margin-bottom: 16px; }
+.bea-page-header h1 {
+  font-weight: 900; font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  margin: 0 0 12px; color: var(--bea-text);
+}
+.bea-page-header > p { color: #5a6b7b; max-width: 640px; margin: 0; }
+
+/* ─── Two-column page layout (main + sidebar) ──────────────── */
+.bea-page-grid {
+  display: grid; grid-template-columns: 2fr 1fr; gap: 24px;
+}
+@media (max-width: 900px) { .bea-page-grid { grid-template-columns: 1fr; } }
+
+/* ─── Back link ─────────────────────────────────────────────── */
+.bea-back {
+  display: inline-flex; align-items: center; gap: 4px;
+  color: var(--bea-text); font-weight: 700; text-decoration: none;
+  padding: 8px 0; margin-bottom: 8px;
+}
+.bea-back:hover { color: var(--bea-cta); }
+
+/* ─── Catalogue card variant (browse marketplace) ──────────── */
+.bea-catalogue-card {
+  background: var(--bea-paper);
+  border: 1px solid #e2e8f0;
+  border-radius: 32px;
+  padding: 24px;
+  text-decoration: none; color: var(--bea-text);
+  display: flex; flex-direction: column;
+  transition: transform var(--bea-dur) var(--bea-ease), border-color var(--bea-dur) var(--bea-ease);
+}
+.bea-catalogue-card:hover { transform: translateY(-3px); border-color: #cbd5e1; }
+.bea-catalogue-card .head {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 8px;
+}
+.bea-catalogue-card h3 {
+  font-size: 1.5rem; font-weight: 900; margin: 0;
+  color: var(--bea-text);
+}
+.bea-catalogue-card p {
+  color: #5a6b7b; margin: 8px 0 12px; font-size: .95rem;
+}
+.bea-catalogue-card .count {
+  font-size: .85rem; font-weight: 700; color: var(--bea-text);
+}
+
+/* ─── CEFR comparison card (used on /cefr-levels) ──────────── */
+.bea-cefr-card { /* extends .bea-app-card */ }
+.bea-cefr-card h3 { font-size: 1.8rem; margin: 12px 0 8px; font-weight: 900; }
+.bea-cefr-card > p { font-size: 1rem; line-height: 1.55; }
+.bea-cefr-card .can-do {
+  list-style: none; padding: 16px 0 0; margin: 0;
+  display: grid; gap: 6px;
+}
+.bea-cefr-card .can-do li {
+  font-size: .9rem; color: var(--bea-text);
+  display: flex; gap: 8px; align-items: flex-start;
+}
+.bea-cefr-card .can-do li::before { content: "✓"; color: var(--bea-cta); font-weight: 900; }
