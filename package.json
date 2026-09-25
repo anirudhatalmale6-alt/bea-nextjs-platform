@@ -1,10 +1,11 @@
 {
-  "name": "project",
-  "version": "1.0.0",
+  "name": "bea-nextjs-app",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "node canary.js && tsc",
-    "prepare": "node canary.js"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
     "react": "19.1.0",
